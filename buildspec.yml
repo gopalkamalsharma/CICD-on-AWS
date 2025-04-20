@@ -18,7 +18,7 @@ phases:
   build:
     commands:
       - echo "Deploying to Ec2"
-      - echo "$ec2_key_pem" > key.pem
+      - echo $ec2_key_pem > key.pem
       - chmod 400 key.pem
       - scp -i key.pem -o StrictHostKeyChecking=no Dockerfile app.py requirements.txt ec2_user@$ec2_public_ip:/home/ec2_user/flaskapp/
       -|
